@@ -1,0 +1,181 @@
+Last login: Sat May  3 15:24:41 on ttys004
+/Volumes/AKAI\ TRAN/UNI\ ADELAIDE/2025\ -\ SEMESTER\ 1/Computer\ Networks\ \&\ Applications/Assignment_2/sr_simulator ; exit;
+akaitran@MacBookPro ~ % /Volumes/AKAI\ TRAN/UNI\ ADELAIDE/2025\ -\ SEMESTER\ 1/Computer\ Networks\ \&\ Applications/Assignment_2/sr_simulator ; exit;
+-----  Stop and Wait Network Simulator Version 1.1 -------- 
+
+Enter the number of messages to simulate: 10
+Enter  packet loss probability [enter 0.0 for no loss]:0
+Enter packet corruption probability [0.0 for no corruption]:0
+Enter average time between messages from sender's layer5 [ > 0.0]:10
+Enter TRACE:2
+
+EVENT time: 6.965711,  type: 1, fromlayer5  entity: 0
+A: Sending packet 0 with message 'aaaaaaaaaaaaaaaaaaaa?'
+          START TIMER: starting timer at 6.965711
+
+EVENT time: 12.374607,  type: 2, fromlayer3  entity: 1
+B: Received correct packet 0 with message 'aaaaaaaaaaaaaaaaaaaa`??'
+B: Sending ACK 0
+
+EVENT time: 17.132755,  type: 2, fromlayer3  entity: 0
+A: Received correct ACK 0
+          STOP TIMER: stopping timer at 17.132755
+
+EVENT time: 19.661861,  type: 1, fromlayer5  entity: 0
+A: Sending packet 1 with message 'bbbbbbbbbbbbbbbbbbbb?'
+          START TIMER: starting timer at 19.661861
+
+EVENT time: 28.642408,  type: 1, fromlayer5  entity: 0
+A: Sending packet 1 with message 'cccccccccccccccccccc?'
+          START TIMER: starting timer at 28.642408
+Warning: attempt to start a timer that is already started
+
+EVENT time: 29.189993,  type: 2, fromlayer3  entity: 1
+B: Received correct packet 1 with message 'bbbbbbbbbbbbbbbbbbbb????'
+B: Sending ACK 1
+
+EVENT time: 31.887445,  type: 1, fromlayer5  entity: 0
+A: Sending packet 1 with message 'dddddddddddddddddddd?'
+          START TIMER: starting timer at 31.887445
+Warning: attempt to start a timer that is already started
+
+EVENT time: 32.231213,  type: 1, fromlayer5  entity: 0
+A: Sending packet 1 with message 'eeeeeeeeeeeeeeeeeeee?'
+          START TIMER: starting timer at 32.231213
+Warning: attempt to start a timer that is already started
+
+EVENT time: 35.661861,  type: 0, timerinterrupt   entity: 0
+A: Timer expired, retransmitting last packet 1
+          START TIMER: starting timer at 35.661861
+
+EVENT time: 37.491924,  type: 2, fromlayer3  entity: 1
+B: Received unexpected packet 1 (expected 0). Resending ACK.
+B: Resending ACK 1
+
+EVENT time: 38.978420,  type: 2, fromlayer3  entity: 0
+A: Received correct ACK 1
+          STOP TIMER: stopping timer at 38.978420
+
+EVENT time: 40.195251,  type: 2, fromlayer3  entity: 0
+A: Received ACK 1, but unexpected (expected 0). Ignoring.
+
+EVENT time: 44.445286,  type: 2, fromlayer3  entity: 1
+B: Received unexpected packet 1 (expected 0). Resending ACK.
+B: Resending ACK 1
+
+EVENT time: 47.266491,  type: 2, fromlayer3  entity: 0
+A: Received ACK 1, but unexpected (expected 0). Ignoring.
+
+EVENT time: 50.777023,  type: 2, fromlayer3  entity: 1
+B: Received unexpected packet 1 (expected 0). Resending ACK.
+B: Resending ACK 1
+
+EVENT time: 51.620754,  type: 1, fromlayer5  entity: 0
+A: Sending packet 0 with message 'ffffffffffffffffffff?'
+          START TIMER: starting timer at 51.620754
+
+EVENT time: 57.401627,  type: 2, fromlayer3  entity: 0
+A: Received ACK 1, but unexpected (expected 0). Ignoring.
+
+EVENT time: 60.227959,  type: 2, fromlayer3  entity: 1
+B: Received unexpected packet 1 (expected 0). Resending ACK.
+B: Resending ACK 1
+
+EVENT time: 66.569618,  type: 2, fromlayer3  entity: 1
+B: Received correct packet 0 with message 'ffffffffffffffffffff????'
+B: Sending ACK 0
+
+EVENT time: 67.620758,  type: 0, timerinterrupt   entity: 0
+A: Timer expired, retransmitting last packet 0
+          START TIMER: starting timer at 67.620758
+
+EVENT time: 67.716057,  type: 2, fromlayer3  entity: 0
+A: Received ACK 1, but unexpected (expected 0). Ignoring.
+
+EVENT time: 68.214249,  type: 1, fromlayer5  entity: 0
+A: Sending packet 0 with message 'gggggggggggggggggggg?'
+          START TIMER: starting timer at 68.214249
+Warning: attempt to start a timer that is already started
+
+EVENT time: 75.361732,  type: 2, fromlayer3  entity: 1
+B: Received unexpected packet 0 (expected 1). Resending ACK.
+B: Resending ACK 0
+
+EVENT time: 75.534286,  type: 2, fromlayer3  entity: 0
+A: Received correct ACK 0
+          STOP TIMER: stopping timer at 75.534286
+
+EVENT time: 77.013405,  type: 2, fromlayer3  entity: 1
+B: Received unexpected packet 0 (expected 1). Resending ACK.
+B: Resending ACK 0
+
+EVENT time: 81.827667,  type: 2, fromlayer3  entity: 0
+A: Received ACK 0, but unexpected (expected 1). Ignoring.
+
+EVENT time: 82.229698,  type: 1, fromlayer5  entity: 0
+A: Sending packet 1 with message 'hhhhhhhhhhhhhhhhhhhh?'
+          START TIMER: starting timer at 82.229698
+
+EVENT time: 85.222305,  type: 2, fromlayer3  entity: 1
+B: Received correct packet 1 with message 'hhhhhhhhhhhhhhhhhhhh????'
+B: Sending ACK 1
+
+EVENT time: 90.001266,  type: 2, fromlayer3  entity: 0
+A: Received ACK 0, but unexpected (expected 1). Ignoring.
+
+EVENT time: 91.087952,  type: 1, fromlayer5  entity: 0
+A: Sending packet 1 with message 'iiiiiiiiiiiiiiiiiiii?'
+          START TIMER: starting timer at 91.087952
+Warning: attempt to start a timer that is already started
+
+EVENT time: 98.229698,  type: 0, timerinterrupt   entity: 0
+A: Timer expired, retransmitting last packet 1
+          START TIMER: starting timer at 98.229698
+
+EVENT time: 98.274773,  type: 2, fromlayer3  entity: 1
+B: Received unexpected packet 1 (expected 0). Resending ACK.
+B: Resending ACK 1
+
+EVENT time: 98.605751,  type: 1, fromlayer5  entity: 0
+A: Sending packet 1 with message 'jjjjjjjjjjjjjjjjjjjj?'
+          START TIMER: starting timer at 98.605751
+Warning: attempt to start a timer that is already started
+
+EVENT time: 98.690735,  type: 2, fromlayer3  entity: 0
+A: Received correct ACK 1
+          STOP TIMER: stopping timer at 98.690735
+
+EVENT time: 100.633179,  type: 2, fromlayer3  entity: 0
+A: Received ACK 1, but unexpected (expected 0). Ignoring.
+
+EVENT time: 100.699570,  type: 1, fromlayer5  entity: 0
+
+EVENT time: 106.207947,  type: 2, fromlayer3  entity: 1
+B: Received unexpected packet 1 (expected 0). Resending ACK.
+B: Resending ACK 1
+
+EVENT time: 111.877754,  type: 2, fromlayer3  entity: 1
+B: Received unexpected packet 1 (expected 0). Resending ACK.
+B: Resending ACK 1
+
+EVENT time: 114.449570,  type: 2, fromlayer3  entity: 0
+A: Received ACK 1, but unexpected (expected 0). Ignoring.
+
+EVENT time: 116.458633,  type: 2, fromlayer3  entity: 0
+A: Received ACK 1, but unexpected (expected 0). Ignoring.
+ Simulator terminated at time 116.458633
+ after attempting to send 10 msgs from layer5
+number of messages dropped due to full window:  0 
+number of valid (not corrupt or duplicate) acknowledgements received at A:  0 
+(note: a single acknowledgement may have acknowledged more than one packet - if cumulative acknowledgements are used)
+number of packet resends by A:  0 
+number of correct packets received at B:  0 
+number of messages delivered to application:  4 
+
+Saving session...
+...copying shared history...
+...saving history...truncating history files...
+...completed.
+
+[Process completed]
+

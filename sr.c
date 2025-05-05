@@ -99,6 +99,7 @@ When packet arrive in layer 4, layer 3 call this method
 void A_input(struct pkt packet) {
   
   /* if packet not corrupted */
+  if (!IsCorrupted(packet)) {
     if (TRACE > 0) {
       printf("----A: uncorrupted ACK %d is received\n",packet.acknum);
     }
@@ -149,7 +150,14 @@ void A_input(struct pkt packet) {
       }
  
     } 
+} else {
+    /* Corrupted packet */
+    if (TRACE > 0)
+    {
+      printf ("----A: corrupted ACK is received, do nothing!\n");
+    }
 }
+  }  
 
 void A_timerinterrupt(void) {
 

@@ -57,7 +57,6 @@ void A_output(struct msg message) {
   struct pkt sendpkt;
 
   /*  if no block */
-  if (windowcount < WINDOWSIZE) {
       if (TRACE > 1) {
         printf("----A: New message arrives, send window is not full, send new messge to layer3!\n");
       }
@@ -86,13 +85,6 @@ void A_output(struct msg message) {
       /* next sequence run from 0 to SEQSPACE - 1 then back to 0 */
       A_nextseqnum = (A_nextseqnum + 1) %SEQSPACE;
 
-  } else {
-    if (TRACE > 0) {
-      printf("----A: New message arrives, send window is full\n");
-    }
-    window_full++;
-
-  }
 
 }
 
@@ -102,7 +94,6 @@ When packet arrive in layer 4, layer 3 call this method
 void A_input(struct pkt packet) {
   
   /* if packet not corrupted */
-  if (!IsCorrupted(packet)) {
     if (TRACE > 0) {
       printf("----A: uncorrupted ACK %d is received\n",packet.acknum);
     }
@@ -153,39 +144,24 @@ void A_input(struct pkt packet) {
       }
  
     } 
-    
-  } else {
-    /* Corrupted packet */
-    if (TRACE > 0)
-    {
-      printf ("----A: corrupted ACK is received, do nothing!\n");
-    }
-    
-  }  
 }
 
 void A_timerinterrupt(void) {
-  int i;
 
-  if (TRACE > 0)
-  {
-    printf("----A: time out,resend packets!\n");
-  }
-
-  for (i = 0; i < WINDOWSIZE; i++) {
-    int tmp = (windowfirst + i) % WINDOWSIZE;
-    if (buffer[tmp].acknum == -1) {
-      /* Didn't receive ACK before timeout */
-      if (TRACE > 0)
-      {
-        printf ("---A: resending packet %d\n", (buffer[tmp]).seqnum);
-      }
-      tolayer3(A, buffer[tmp]);
-      packets_resent++;
-      starttimer(A, RTT);
-      break;      
+    int i;
+    
+    if (TRACE > 0)
+        printf("----A: time out,resend packets!\n");
+    
+    for(i=0; i<windowcount; i++) {
+    
+        if (TRACE > 0)
+        printf ("---A: resending packet %d\n", (buffer[(windowfirst+i) % WINDOWSIZE]).seqnum);
+    
+        tolayer3(A,buffer[(windowfirst+i) % WINDOWSIZE]);
+        packets_resent++;
+        if (i==0) starttimer(A,RTT);
     }
-  }
 }
 
 void A_init(void) {

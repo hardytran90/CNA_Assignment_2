@@ -160,22 +160,28 @@ void A_input(struct pkt packet) {
   }  
 
 void A_timerinterrupt(void) {
-
     int i;
-    
+
     if (TRACE > 0)
-        printf("----A: time out,resend packets!\n");
-    
-    for(i=0; i<windowcount; i++) {
-    
-        if (TRACE > 0)
-        printf ("---A: resending packet %d\n", (buffer[(windowfirst+i) % WINDOWSIZE]).seqnum);
-    
-        tolayer3(A,buffer[(windowfirst+i) % WINDOWSIZE]);
-        packets_resent++;
-        if (i==0) starttimer(A,RTT);
+    {
+      printf("----A: time out,resend packets!\n");
     }
-}
+  
+    for (i = 0; i < WINDOWSIZE; i++) {
+      int tmp = (windowfirst + i) % WINDOWSIZE;
+      if (buffer[tmp].acknum == -1) {
+        /* Didn't receive ACK before timeout */
+        if (TRACE > 0)
+        {
+          printf ("---A: resending packet %d\n", (buffer[tmp]).seqnum);
+        }
+        tolayer3(A, buffer[tmp]);
+        packets_resent++;
+        starttimer(A, RTT);
+        break;      
+      }
+    }
+  }
 
 void A_init(void) {
   A_nextseqnum = 0;

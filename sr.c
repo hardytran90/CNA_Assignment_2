@@ -57,7 +57,8 @@ void A_output(struct msg message) {
   struct pkt sendpkt;
 
   /*  if no block */
-      if (TRACE > 1) {
+  if (windowcount < WINDOWSIZE) {
+       if (TRACE > 1) {
         printf("----A: New message arrives, send window is not full, send new messge to layer3!\n");
       }
       
@@ -84,8 +85,12 @@ void A_output(struct msg message) {
 
       /* next sequence run from 0 to SEQSPACE - 1 then back to 0 */
       A_nextseqnum = (A_nextseqnum + 1) %SEQSPACE;
-
-
+    } else {
+        if (TRACE > 0) {
+          printf("----A: New message arrives, send window is full\n");
+        }
+        window_full++;
+      }
 }
 
 /*
